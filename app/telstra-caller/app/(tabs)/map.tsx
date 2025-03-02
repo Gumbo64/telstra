@@ -86,7 +86,7 @@ export default function MapScreen() {
               key={index}
               coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
               title={marker.address}
-              description={marker.fnn}
+              description={marker.cli}
               onPress={
                 () => {
                   if (markersSelections[index]) {

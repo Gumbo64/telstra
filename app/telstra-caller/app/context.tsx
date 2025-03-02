@@ -34,7 +34,7 @@ interface AppProviderProps {
 import * as Linking from 'expo-linking';
 
 function callNearestTelstra(closestPhone: any) {
-    const number = closestPhone.fnn.split(':')[1];
+    const number = closestPhone.cli
     Linking.openURL(`tel:${number}`);
 }
 
