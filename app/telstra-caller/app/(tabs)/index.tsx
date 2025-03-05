@@ -3,7 +3,7 @@ import { StyleSheet, Text } from 'react-native';
 import { ThemedView } from '@/components/ThemedView';
 import { TouchableOpacity } from 'react-native';
 
-
+import * as Clipboard from 'expo-clipboard';
 import { useAppContext, callNearestTelstra } from '../context';
 
 export default function HomeScreen() {
@@ -21,8 +21,24 @@ export default function HomeScreen() {
       <Text style={styles.text}>Home</Text>
       <Text style={styles.text}>{errorMsg}</Text>
       <Text style={styles.text}>Nearest payphone:</Text>
-      <Text style={styles.text}>{location?.coords.latitude.toFixed(6)}, {location?.coords.longitude.toFixed(6)}</Text>
-      <Text style={styles.text}>{closestPhone?.address}</Text>
+      <TouchableOpacity
+        onPress={() => {
+          if (closestPhone) {
+            Clipboard.setStringAsync(`${closestPhone.latitude}, ${closestPhone.longitude}`);
+          }
+        }}
+      >
+        <Text style={[styles.text, { color: 'blue' }]}>{closestPhone?.latitude.toFixed(6)}, {closestPhone?.longitude.toFixed(6)}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          if (closestPhone) {
+            Clipboard.setStringAsync(closestPhone.address);
+          }
+        }}
+      >
+        <Text style={[styles.text, { color: 'blue' }]}>{closestPhone?.address}</Text>
+      </TouchableOpacity>
       <Text style={styles.text}>Distance: {((closestPhoneDistance || 0) * 1000).toFixed(2)} m</Text>
       
       <TouchableOpacity

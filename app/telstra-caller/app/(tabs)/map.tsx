@@ -4,7 +4,6 @@ import * as React from 'react';
 import { ThemedView } from '@/components/ThemedView';
 import { useState } from 'react';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; 
-import { UrlTile } from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import { Polyline } from 'react-native-maps';
 import { useAppContext, phoneDistance, callNearestTelstra } from '../context';
@@ -64,23 +63,6 @@ export default function MapScreen() {
             longitudeDelta: 0.0121,
           }}
         >
-          <UrlTile
-            /**
-             * The url template of the tile server. The patterns {x} {y} {z} will be replaced at runtime
-             * For example, 
-             */
-            urlTemplate="http://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            /**
-             * The maximum zoom level for this tile overlay. Corresponds to the maximumZ setting in
-             * MKTileOverlay. iOS only.
-             */
-            maximumZ={19}
-            /**
-             * flipY allows tiles with inverted y coordinates (origin at bottom left of map)
-             * to be used. Its default value is false.
-             */
-            flipY={false}
-          />
           {markers.map((marker: any, index: any) => (
             <Marker
               key={index}
