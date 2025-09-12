@@ -17,7 +17,7 @@ should help in the case of a future phone battery emergency or emergency-emergen
 ## Features
 - Quickly find and call the nearest payphone to your GPS location 
 - Browse around for other payphones in the map section
-- [Data downloaded courtesy of information courtesy of the Telstra API](https://www.telstra.com.au/find-us)
+- [Data downloaded courtesy of the Telstra API](https://www.telstra.com.au/find-us)
 
 
 ## Screenshots
